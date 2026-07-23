@@ -132,7 +132,6 @@ int spo2 = 0;
 long irLastValue = 0;
 bool showHeart = false; 
 
-// Variabel untuk animasi grafik
 int graphX = 0;
 int lastGraphY = 26; 
 
@@ -167,13 +166,11 @@ void loop() {
   if (irValue > 20000) {
     graphX = 0; // Reset grafik standby
 
-    // Catat waktu awal jari pertama kali menempel
     if (waktuMulaiTempel == 0) {
       waktuMulaiTempel = millis();
       sudahFinal = false;
     }
 
-    // Matikan status transisi agar siap mendeteksi saat jari dilepas nanti
     transisiKeStandby = false; 
 
     // SELAMA BELUM 5 DETIK, HITUNG TERUS.
@@ -214,7 +211,6 @@ void loop() {
 
     irLastValue = irValue; 
 
-    // TAMPILKAN DATA KE LCD (SAAT JARI MENEMPEL)
     display.clearDisplay();
     
     display.setTextSize(1);
@@ -222,17 +218,14 @@ void loop() {
     display.print("BPM ");
     if (showHeart && !sudahFinal) display.print((char)3); 
     
-    // Judul SpO2
     display.setCursor(80, 0);
     display.print("SpO2 (%)");
 
     display.setTextSize(2);
     
-    // Angka BPM di kiri
     display.setCursor(0, 12);
     display.print(beatAvg); 
 
-    // Angka SpO2 di kanan
     display.setCursor(80, 12);
     display.print(spo2); 
     display.setTextSize(1);
