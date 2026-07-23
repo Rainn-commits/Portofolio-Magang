@@ -1,8 +1,8 @@
 # Yanuar Andina Rahayu | Portfolio
 
-Website portofolio pribadi Rainn, mahasiswa Informatika di UNIPMA (Universitas PGRI Madiun). Menampilkan profil, keahlian dan project yang sudah dikerjakan.
+Website portofolio pribadi Yanuar Andina Rahayu, mahasiswa Informatika di UNIPMA (Universitas PGRI Madiun). Menampilkan profil, keahlian dan project yang sudah dikerjakan.
 
-Dibangun dari template [Stellar](https://html5up.net/stellar) (HTML5 UP) dengan tema custom bioluminescence — dimodifikasi warna, layout, dan interaksi (starfield/particle glow, scroll-reveal animation, animated stat counter).
+Dibangun dari template [Stellar](https://html5up.net/stellar) (HTML5 UP) dengan tema custom bioluminescence. Dimodifikasi warna, layout dan interaksi (starfield/particle glow, scroll-reveal animation, animated stat counter).
 
 ## Halaman
 
