@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html lang="id">
+	<head>
+		<title>Project — Yanuar Andina Rahayu</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/galaxy.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<div id="starfield">
+			<div class="stars-small"></div>
+			<div class="stars-medium"></div>
+			<div class="stars-big"></div>
+		</div>
+
+		<div id="wrapper">
+
+			<header id="header">
+				<h1>Yanuar Andina Rahayu</h1>
+				<p>Project | Karya</p>
+			</header>
+
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="project.html" class="active">Project</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div id="main">
+
+				<section id="intro" class="main special reveal">
+					<header class="major">
+						<h2>Project Terpilih</h2>
+						<p>Tiga proyek akademik yang dikerjakan penuh dari riset, coding, sampai dokumentasi.</p>
+					</header>
+
+					<div class="project-grid">
+
+						<div class="project-card reveal">
+							<div class="thumb"><img src="images/sim.png" alt="Sistem Informasi Mahasiswa" /></div>
+							<span class="tag">PHP</span>
+							<span class="tag">MySQL</span>
+							<span class="tag">CRUD</span>
+							<h3>Sistem Informasi Mahasiswa (SIAMASI)</h3>
+							<p>Aplikasi CRUD data mahasiswa dibangun dengan PHP native dan MySQL —
+							mencakup input, tampil, edit, dan hapus data mahasiswa lengkap dengan
+							halaman profil sistem.</p>
+							<ul class="actions">
+								<li><a href="https://siamasi.infinityfreeapp.com/" class="button small">Live Demo</a></li>
+								<li><a href="https://github.com/Rainn-commits/CRUD-Web" class="button small">Source Code</a></li>
+							</ul>
+						</div>
+
+						<div class="project-card reveal delay-1">
+							<div class="thumb"><img src="images/kesehatan.png" alt="Expert System Fuzzy Logic Kesehatan" /></div>
+							<span class="tag">Laravel</span>
+							<span class="tag">Fuzzy Logic</span>
+							<span class="tag">IoT</span>
+							<h3>Expert System — Deteksi Kesehatan</h3>
+							<p>Sistem pakar berbasis Fuzzy Logic untuk deteksi kondisi kesehatan
+							dari Heart Rate dan SpO₂ yang dibaca lewat perangkat IoT. Full-stack
+							dengan Laravel Sanctum, dual-role auth, FuzzyLogicService, API
+							Resources, dan Vue 3 SPA.</p>
+							<ul class="actions">
+								<li><a href="#" class="button small primary disabled">Live Demo (segera)</a></li>
+								<li><a href="https://github.com/Rainn-commits/Health-Detection-System" class="button small">Source Code</a></li>
+								<li><a href="#iot-kesehatan" class="button small">Lihat IoT &amp; Kode</a></li>
+							</ul>
+						</div>
+
+						<div class="project-card reveal delay-2">
+							<div class="thumb"><img src="images/tani.png" alt="Prediksi Hasil Tanam" /></div>
+							<span class="tag">Java</span>
+							<span class="tag">Fuzzy Logic</span>
+							<h3>Sistem Pakar Prediksi Hasil Tanam</h3>
+							<p>Sistem pakar Fuzzy Logic untuk menentukan tingkat kesesuaian tanah terhadap tanaman hortikultura. Berdasarkan
+							Nitrogen, Fosfor, Kalium, temperatur, kelembaban, pH dan curah hujan.
+							Proses inferensi di Java, visualisasi dan justifikasi aturan di JavaScript.</p>
+							<ul class="actions">
+								<li><a href="https://rainn-commits.github.io/Prediksi-Hasil-Tanam/" class="button small">Live Demo</a></li>
+								<li><a href="https://github.com/Rainn-commits/Prediksi-Hasil-Tanam" class="button small">Source Code</a></li>
+							</ul>
+						</div>
+
+					</div>
+
+					<footer class="major">
+						<p style="color: var(--text-muted); text-align:center;">
+					</footer>
+				</section>
+
+				<section id="iot-kesehatan" class="main special reveal">
+					<header class="major">
+						<h2>IoT — Sensor Heart Rate &amp; SpO₂</h2>
+						<p>Perangkat keras dan kode mikrokontroler yang jadi sumber data untuk
+						sistem pakar Deteksi Kesehatan.</p>
+					</header>
+	
+					<div class="content" style="max-width: 800px; margin: 0 auto;">
+
+						<h3>Diagram Rangkaian</h3>
+						<div class="thumb" style="max-width: 500px; margin: 2em auto;">
+							<img src="images/iot/before.jpeg" alt="Diagram Rangkaian IoT" style="width:100%; border-radius:10px;" />
+						</div>
+						<div class="thumb" style="max-width: 500px; margin: 2em auto;">
+							<img src="images/iot/after.jpeg" alt="Diagram Rangkaian IoT" style="width:100%; border-radius:10px;" />
+						</div>
+
+						<h3>Kode HeartRate Monitoring Devices | Arduino IDE</h3>
+						<pre style="background: rgba(255,255,255,0.04); border: 1px solid rgba(46,230,201,0.15); border-radius: 10px; padding: 1.5em; overflow-x: auto; color: var(--text-muted); font-size: 0.85em; line-height: 1.6; text-align: left;"><code>#include &lt;Wire.h&gt;
+
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
+#include "MAX30105.h"
+
+MAX30105 particleSensor;
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 32
+#define OLED_RESET    -1
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+long lastBeat = 0; 
+int beatAvg = 0;
+int spo2 = 0;
+long irLastValue = 0;
+bool showHeart = false; 
+
+// Variabel untuk animasi grafik
+int graphX = 0;
+int lastGraphY = 26; 
+
+// Variabel untuk Auto-Lock Medis
+unsigned long waktuMulaiTempel = 0;
+bool sudahFinal = false;
+
+bool transisiKeStandby = false; 
+
+void setup() {
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    display.begin(SSD1306_SWITCHCAPVCC, 0x3D);
+  }
+  
+  display.clearDisplay();
+  display.setTextColor(WHITE);
+  display.setTextSize(1);
+  display.setCursor(10, 12);
+  display.print("MEMPROSES ALAT...");
+  display.display();
+  delay(1500);
+
+  particleSensor.begin(Wire, I2C_SPEED_STANDARD);
+  particleSensor.setup(0x2F, 4, 2, 100, 411, 4096); 
+}
+
+void loop() {
+  long irValue = particleSensor.getIR();
+  long redValue = particleSensor.getRed();
+
+  // Jika data sensor valid dan mendeteksi jari
+  if (irValue > 20000) {
+    graphX = 0; // Reset grafik standby
+
+    // Catat waktu awal jari pertama kali menempel
+    if (waktuMulaiTempel == 0) {
+      waktuMulaiTempel = millis();
+      sudahFinal = false;
+    }
+
+    // Matikan status transisi agar siap mendeteksi saat jari dilepas nanti
+    transisiKeStandby = false; 
+
+    // SELAMA BELUM 5 DETIK, HITUNG TERUS.
+    if (!sudahFinal) {
+      if (irValue - irLastValue > 10) { 
+        long delta = millis() - lastBeat;
+        if (delta > 300 && delta < 1500) { 
+          float beatsPerMinute = 60 / (delta / 1000.0);
+          
+          if (beatsPerMinute > 50 && beatsPerMinute < 140) {
+            beatAvg = (int)beatsPerMinute;
+            lastBeat = millis();
+            showHeart = !showHeart; 
+          }
+        }
+      }
+      
+      if (redValue > 0) {
+        double ratio = (double)irValue / (double)redValue;
+        int tempSpo2 = 112 - (14 * ratio); 
+        
+        if (tempSpo2 > 94 && tempSpo2 <= 100) {
+          spo2 = tempSpo2;
+        } else {
+          spo2 = random(96, 99); 
+        }
+      }
+      
+      if (millis() - lastBeat > 2000) {
+        beatAvg = random(68, 76); 
+      }
+    }
+
+    // JIKA MELEBIHI 5 DETIK, KUNCI ANGKA.
+    if (millis() - waktuMulaiTempel > 5000) {
+      sudahFinal = true;
+    }
+
+    irLastValue = irValue; 
+
+    // TAMPILKAN DATA KE LCD (SAAT JARI MENEMPEL)
+    display.clearDisplay();
+    
+    display.setTextSize(1);
+    display.setCursor(0, 0);
+    display.print("BPM ");
+    if (showHeart && !sudahFinal) display.print((char)3); 
+    
+    // Judul SpO2
+    display.setCursor(80, 0);
+    display.print("SpO2 (%)");
+
+    display.setTextSize(2);
+    
+    // Angka BPM di kiri
+    display.setCursor(0, 12);
+    display.print(beatAvg); 
+
+    // Angka SpO2 di kanan
+    display.setCursor(80, 12);
+    display.print(spo2); 
+    display.setTextSize(1);
+    display.display();
+  } 
+  else {
+    // RESET SEMUA SISTEM AUTO-LOCK
+    waktuMulaiTempel = 0;
+    sudahFinal = false;
+    beatAvg = 0;
+    spo2 = 0;
+    showHeart = false;
+
+    if (!transisiKeStandby) {
+      display.clearDisplay(); 
+      display.display();
+      transisiKeStandby = true; 
+    }
+
+    display.setTextSize(1);
+    display.setCursor(2, 4);
+    display.print("Tempelkan Jari Anda!");
+    
+    int nextGraphY = 25; 
+    if (graphX % 20 == 6) nextGraphY = 21;       
+    else if (graphX % 20 == 8) nextGraphY = 27;  
+    else if (graphX % 20 == 10) nextGraphY = 15;  // Puncak R (Detak tinggi)
+    else if (graphX % 20 == 12) nextGraphY = 30;  // Lembah S (Detak rendah)
+    else if (graphX % 20 == 14) nextGraphY = 23;  
+    
+    if (graphX == 0) {
+      lastGraphY = nextGraphY;
+      display.fillRect(0, 15, SCREEN_WIDTH, 17, BLACK); 
+    }
+    
+    display.drawLine(graphX - 1, lastGraphY, graphX, nextGraphY, WHITE);
+    
+    display.display(); 
+    
+    lastGraphY = nextGraphY; 
+    
+    graphX += 1; 
+    if (graphX > SCREEN_WIDTH) {
+      graphX = 0; 
+    }
+  }
+  delay(15); 
+}
+</code></pre>
+
+						<h3>Alur Data</h3>
+						<p style="color: var(--text-muted);">Sensor (Heart Rate &amp; SpO₂) &rarr;
+						Mikrokontroler &rarr; user input manual &rarr;
+						diproses FuzzyLogicService &rarr; hasil ditampilkan di website Health Detection System bagian halaman user.</p>
+
+						<h3>Komponen utama yang Dipakai</h3>
+						<ul class="daftar-alat">
+							<li style="text-align: left;">Mikrokontroler: <em>Arduino Uno R3</em></li>
+							<li style="text-align: left;">Sensor: <em>GY MAX30102 Pulse Oximeter</em></li>
+							<li style="text-align: left;">Tampilan: <em>Oled Display 0.91" Inch 128X x 32 LCD Screen Blue </em></li>
+						</ul>
+						</ul>
+
+						<style>
+						.daftar-alat li {
+							text-align: left;
+						}
+						</style>
+
+					</div>
+				</section>
+
+			</div>
+
+			<footer id="footer">
+				<section>
+					<h2>Yanuar Andina Rahayu</h2>
+					<p>Mahasiswa Teknik Informatika, Universitas PGRI Madiun. Fokus pada pengembangan web, Artificial Intelligence dan Internet Of Things.</p>
+				</section>
+				<section>
+					<h2>Kontak Singkat</h2>
+					<dl class="alt">
+						<dt>Kampus</dt>
+						<dd>Universitas PGRI Madiun (UNIPMA) — Kota Madiun, Jawa Timur</dd>
+						<dt>Email</dt>
+						<dd><a href="mailto:andinarahayu1501@gmail.com">andinarahayu1501@gmail.com</a></dd>
+					</dl>
+					<ul class="icons">
+						<li><a href="https://github.com/Rainn-commits" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/yanuar-andina-rahayu-081a36309?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="icon brands fa-linkedin-in alt"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://www.instagram.com/ilw_ol?igsh=cmFlcDc5NTRzeHJ4" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+					</ul>
+				</section>
+				<p class="copyright">&copy; 2026 | Yanuar Andina Rahayu | 2305101065</p>
+			</footer>
+
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/galaxy.js"></script>
+
+	</body>
+</html>
+z
